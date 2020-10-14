@@ -1,5 +1,5 @@
 
-            <div class="row mb-5">
+            <div class="row mb-5 mt-3">
                 <div class="col-lg-12">
                     <div class="section_title text-center">
                         <h3>Distribusikan Bantuan</h3>

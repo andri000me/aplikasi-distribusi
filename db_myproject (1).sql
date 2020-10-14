@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2020 at 09:04 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Waktu pembuatan: 13 Okt 2020 pada 21.23
+-- Versi server: 10.1.38-MariaDB
+-- Versi PHP: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `alokasi`
+-- Struktur dari tabel `alokasi`
 --
 
 CREATE TABLE `alokasi` (
@@ -34,23 +34,21 @@ CREATE TABLE `alokasi` (
   `nm_alokasi` varchar(50) NOT NULL,
   `id_posko` int(11) NOT NULL,
   `id_bantuan` int(11) NOT NULL,
-  `tgl_diajukan` date NOT NULL,
   `tgl_alokasi` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `alokasi`
+-- Dumping data untuk tabel `alokasi`
 --
 
-INSERT INTO `alokasi` (`id_alokasi`, `id`, `nm_alokasi`, `id_posko`, `id_bantuan`, `tgl_diajukan`, `tgl_alokasi`) VALUES
-(2, 2, 'alokasi banjir PSG 1', 1, 1, '2020-10-09', '2020-10-09'),
-(3, 2, 'alokasi banjir PSG 2', 2, 1, '2020-10-09', '2020-10-09'),
-(4, 3, 'alokasi banjir PSG 3', 3, 1, '2020-10-09', '2020-10-09');
+INSERT INTO `alokasi` (`id_alokasi`, `id`, `nm_alokasi`, `id_posko`, `id_bantuan`, `tgl_alokasi`) VALUES
+(2, 2, 'alokasi banjir PSG 1', 1, 1, '2020-10-09'),
+(3, 2, 'alokasi banjir PSG 2', 2, 1, '2020-10-09');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bantuan`
+-- Struktur dari tabel `bantuan`
 --
 
 CREATE TABLE `bantuan` (
@@ -60,16 +58,16 @@ CREATE TABLE `bantuan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bantuan`
+-- Dumping data untuk tabel `bantuan`
 --
 
 INSERT INTO `bantuan` (`id_bantuan`, `jenis_bantuan`, `jumlah_bantuan`) VALUES
-(1, 'Pangan', 100);
+(1, 'Pangans', 100);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `distribusi`
+-- Struktur dari tabel `distribusi`
 --
 
 CREATE TABLE `distribusi` (
@@ -77,24 +75,22 @@ CREATE TABLE `distribusi` (
   `nm_distribusi` varchar(50) NOT NULL,
   `id` int(11) NOT NULL,
   `id_alokasi` int(11) NOT NULL,
-  `id_posko` int(11) NOT NULL,
-  `id_bantuan` int(11) NOT NULL,
   `sarana` varchar(50) NOT NULL,
   `tgl_distribusi` date NOT NULL,
   `tgl_diterima` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `distribusi`
+-- Dumping data untuk tabel `distribusi`
 --
 
-INSERT INTO `distribusi` (`id_dis`, `nm_distribusi`, `id`, `id_alokasi`, `id_posko`, `id_bantuan`, `sarana`, `tgl_distribusi`, `tgl_diterima`) VALUES
-(2, 'distribusi banjir PSG 1', 1, 2, 1, 1, 'Mobil', '2020-10-10', '2020-10-10');
+INSERT INTO `distribusi` (`id_dis`, `nm_distribusi`, `id`, `id_alokasi`, `sarana`, `tgl_distribusi`, `tgl_diterima`) VALUES
+(7, 'Distribusi banjir psg 2', 2, 3, 'motors', '2020-10-13', '2020-10-13');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `posko`
+-- Struktur dari tabel `posko`
 --
 
 CREATE TABLE `posko` (
@@ -107,22 +103,23 @@ CREATE TABLE `posko` (
   `longitude` decimal(9,6) NOT NULL,
   `alamat_posko` varchar(50) NOT NULL,
   `status` enum('menunggu alokasi','menunggu distribusi','bantuan dikirim','bantuan sampai') NOT NULL,
-  `id` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `posko`
+-- Dumping data untuk tabel `posko`
 --
 
-INSERT INTO `posko` (`id_posko`, `nm_posko`, `bencana`, `jumlah_korban`, `kondisi`, `latitude`, `longitude`, `alamat_posko`, `status`, `id`) VALUES
-(1, 'Posko Banjir 1 PSG', 'Banjir', 100, 'Sedang', '-5.399427', '105.254040', '', 'menunggu alokasi', 2),
-(2, 'Posko Banjir 2 PSG', 'Banjir', 100, 'Sedang', '-5.390371', '105.000000', '', 'menunggu distribusi', 2),
-(3, 'Posko Banjir 3 PSG', 'Banjir', 100, 'Sedang', '-5.399427', '105.000000', '', 'menunggu distribusi', 3);
+INSERT INTO `posko` (`id_posko`, `nm_posko`, `bencana`, `jumlah_korban`, `kondisi`, `latitude`, `longitude`, `alamat_posko`, `status`, `id`, `tanggal`) VALUES
+(1, 'Posko Banjir 1 PSG', 'Banjir', 100, 'Sedang', '-5.399427', '105.254040', '', 'menunggu alokasi', 2, '0000-00-00'),
+(2, 'Posko Banjir 2 PSG', 'Banjir', 100, 'Sedang', '-5.390371', '105.000000', '', 'bantuan sampai', 2, '0000-00-00'),
+(7, 'Posko Syahdu', 'Tsunami', 1, 'Santay', '0.000000', '0.000000', 'Bandung', 'menunggu alokasi', 2, '2020-10-13');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -134,12 +131,12 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `username`, `password`, `level`) VALUES
-(1, 'danael', 'danael', '827ccb0eea8a706c4c34a16891f84e7b', 'admin'),
-(2, 'jay', 'jay', '827ccb0eea8a706c4c34a16891f84e7b', 'korlap'),
+(1, 'danael', 'admin', '827ccb0eea8a706c4c34a16891f84e7b', 'admin'),
+(2, 'jay', 'korlap', '827ccb0eea8a706c4c34a16891f84e7b', 'korlap'),
 (3, 'chul', 'chul', '827ccb0eea8a706c4c34a16891f84e7b', 'korlap');
 
 --
@@ -147,7 +144,7 @@ INSERT INTO `user` (`id`, `name`, `username`, `password`, `level`) VALUES
 --
 
 --
--- Indexes for table `alokasi`
+-- Indeks untuk tabel `alokasi`
 --
 ALTER TABLE `alokasi`
   ADD PRIMARY KEY (`id_alokasi`),
@@ -156,68 +153,66 @@ ALTER TABLE `alokasi`
   ADD KEY `id_bantuan` (`id_bantuan`);
 
 --
--- Indexes for table `bantuan`
+-- Indeks untuk tabel `bantuan`
 --
 ALTER TABLE `bantuan`
   ADD PRIMARY KEY (`id_bantuan`);
 
 --
--- Indexes for table `distribusi`
+-- Indeks untuk tabel `distribusi`
 --
 ALTER TABLE `distribusi`
   ADD PRIMARY KEY (`id_dis`),
   ADD KEY `id` (`id`),
-  ADD KEY `id_alokasi` (`id_alokasi`),
-  ADD KEY `id_posko` (`id_posko`),
-  ADD KEY `id_bantuan` (`id_bantuan`);
+  ADD KEY `id_alokasi` (`id_alokasi`);
 
 --
--- Indexes for table `posko`
+-- Indeks untuk tabel `posko`
 --
 ALTER TABLE `posko`
   ADD PRIMARY KEY (`id_posko`),
   ADD KEY `id` (`id`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `alokasi`
+-- AUTO_INCREMENT untuk tabel `alokasi`
 --
 ALTER TABLE `alokasi`
-  MODIFY `id_alokasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_alokasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `bantuan`
+-- AUTO_INCREMENT untuk tabel `bantuan`
 --
 ALTER TABLE `bantuan`
-  MODIFY `id_bantuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_bantuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `distribusi`
+-- AUTO_INCREMENT untuk tabel `distribusi`
 --
 ALTER TABLE `distribusi`
-  MODIFY `id_dis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_dis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `posko`
+-- AUTO_INCREMENT untuk tabel `posko`
 --
 ALTER TABLE `posko`
-  MODIFY `id_posko` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_posko` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `alokasi`
+-- Ketidakleluasaan untuk tabel `alokasi`
 --
 ALTER TABLE `alokasi`
   ADD CONSTRAINT `alokasi_ibfk_1` FOREIGN KEY (`id`) REFERENCES `user` (`id`),
@@ -225,16 +220,14 @@ ALTER TABLE `alokasi`
   ADD CONSTRAINT `alokasi_ibfk_3` FOREIGN KEY (`id_bantuan`) REFERENCES `bantuan` (`id_bantuan`);
 
 --
--- Constraints for table `distribusi`
+-- Ketidakleluasaan untuk tabel `distribusi`
 --
 ALTER TABLE `distribusi`
   ADD CONSTRAINT `distribusi_ibfk_1` FOREIGN KEY (`id`) REFERENCES `user` (`id`),
-  ADD CONSTRAINT `distribusi_ibfk_2` FOREIGN KEY (`id_alokasi`) REFERENCES `alokasi` (`id_alokasi`),
-  ADD CONSTRAINT `distribusi_ibfk_3` FOREIGN KEY (`id_posko`) REFERENCES `posko` (`id_posko`),
-  ADD CONSTRAINT `distribusi_ibfk_4` FOREIGN KEY (`id_bantuan`) REFERENCES `bantuan` (`id_bantuan`);
+  ADD CONSTRAINT `distribusi_ibfk_2` FOREIGN KEY (`id_alokasi`) REFERENCES `alokasi` (`id_alokasi`);
 
 --
--- Constraints for table `posko`
+-- Ketidakleluasaan untuk tabel `posko`
 --
 ALTER TABLE `posko`
   ADD CONSTRAINT `posko_ibfk_1` FOREIGN KEY (`id`) REFERENCES `user` (`id`);

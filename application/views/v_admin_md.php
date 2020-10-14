@@ -47,40 +47,7 @@
   <body>
 
 
-<div class="bg-top navbar-light">
-        <div class="container">
-            <div class="row no-gutters d-flex align-items-center align-items-stretch">
-                <div class="col-md-4 d-flex align-items-center py-4">
-                    <a class="navbar-brand" href="index.html">Distribusi Bantuan Logistik Tanggap Darurat Bencana</a>
-                </div>
-                        <div class="col-md topper d-flex align-items-center justify-content-end">
-                            <p class="mb-0 d-block">
-                                <a href="<?php echo base_url()?>auth/logout" class="btn py-2 px-3 btn-primary">
-                                    <span>Logout</span>
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          </div>
-    </div>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
-        <div class="container d-flex align-items-center">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="oi oi-menu"></span> Menu
-          </button>
 
-          <div class="collapse navbar-collapse" id="ftco-nav">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active"><a href="<?php echo base_url()?>page_admin" class="nav-link pl-0">Home</a></li>
-                <li class="nav-item"><a href="<?php echo base_url()?>admin_kd" class="nav-link">Kelola Distribusi</a></li>
-                <li class="nav-item"><a href="<?php echo base_url()?>admin_md" class="nav-link">Monitoring Distribusi</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    <!-- END nav -->
     
     <div class="container">
     <div class="section_title text-center">
