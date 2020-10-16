@@ -7,6 +7,7 @@
     <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
     <!-- Bootstrap CSS from Assets Folder-->
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="<?php echo base_url('assets/logo.png')?>">
   </head>
   <body>
 	<div class="container">

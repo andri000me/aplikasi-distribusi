@@ -10,7 +10,7 @@
     <title>Consolution - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <link rel="shortcut icon" href="<?php echo base_url('assets/logo.png')?>">
     <link href="<?php echo base_url()?>https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="<?php echo base_url()?>css/open-iconic-bootstrap.min.css">
@@ -33,6 +33,7 @@
         <div class="container">
             <div class="row no-gutters d-flex align-items-center align-items-stretch">
                 <div class="col-md-4 d-flex align-items-center py-4">
+                    <img src="<?php echo base_url('assets/logo.png') ?>" width="60">
                     <a class="navbar-brand" href="index.html">Distribusi Bantuan Logistik Tanggap Darurat Bencana</a>
                 </div>
                         <div class="col-md topper d-flex align-items-center justify-content-end">
