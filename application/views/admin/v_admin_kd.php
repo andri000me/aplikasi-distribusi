@@ -12,7 +12,7 @@
 <?php $id = $this->db->query("
                             SELECT * from alokasi
                             inner join posko on alokasi.id_posko=posko.id_posko
-                            and alokasi.id=posko.id
+                       
                             where posko.status = 'menunggu distribusi'
                             order by id_alokasi ASC limit 0,3
                         ")->result_array(); ?>

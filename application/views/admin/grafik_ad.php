@@ -48,10 +48,83 @@
 </style>
 </head>
 <body>
+<div class="row">
+    <div class="col-12">
 <figure class="highcharts-figure">
     <div id="container"></div>
     
 </figure>
+        
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+               
+       <div class="row">
+                    <div class="col-md-12">
+                        <div class="white-box">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h3 class="box-title">Data Distribusi</h3> 
+                                </div>
+
+                            
+                            </div>
+                            
+                             <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nama Distribusi</th>
+                                            <th>Nama Alokasi</th>
+                    
+                                           
+                                            <th>Sarana</th>
+                                            <th>Tanggal Distribusi</th>
+                                            <th>Tanggal Diterima</th>
+                                            <th>Status</th>
+                             
+                             
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php $i = 1; 
+                                        $id = $this->db->query("
+                             SELECT * from distribusi
+                           join alokasi on distribusi.id_alokasi = alokasi.id_alokasi
+                           join posko on alokasi.id_posko=posko.id_posko
+
+                            order by alokasi.id_alokasi ASC
+                        ")->result(); ?>
+                    
+                                        <?php foreach ($id as $key): ?>
+                                            
+                                        <tr>
+                                            <td><?= $i; ?></td>
+                                            <td><?= $key->nm_distribusi ?></td>
+                                            <td><?= $key->nm_alokasi ?></td>
+                                            
+                                            <td><?= $key->sarana ?></td>
+                                            <td><?= $key->tgl_distribusi ?></td>
+                                            <td><?= $key->tgl_diterima ?></td>
+                                            <td><?= $key->status ?></td>
+                                          
+                                            
+                                        </tr>
+                                        <?php $i++; ?>
+                                        <?php endforeach ?>
+                                    </tbody>
+                                </table>
+                                </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+</div>
+
+
 <?php
 
 $jlh = $this->db->query("SELECT COUNT(tgl_distribusi) as jlh
@@ -77,7 +150,7 @@ GROUP by month(tgl_distribusi)")->result();
 
       $x = json_encode($j);
       $y = json_encode($t);
-// var_dump($x);die();
+
 
       ?>
     

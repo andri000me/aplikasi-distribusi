@@ -11,12 +11,11 @@
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                     <div class="row">
                         <?php 
-                        $iduser = $this->session->userdata('id');
                         $id = $this->db->query("
                            SELECT * from distribusi
                            join alokasi on distribusi.id_alokasi = alokasi.id_alokasi
                            join posko on alokasi.id_posko=posko.id_posko
-                           where status = 'bantuan dikirim' and alokasi.id='$iduser'
+                           where status = 'bantuan dikirim' and posko.id='$iduser'
                             order by alokasi.id_alokasi ASC limit 0,3
                         ")->result_array(); ?>
                        <?php foreach ($id as $keys ): ?>
@@ -58,11 +57,14 @@
        
        <div class="row">
            
-<?php $id = $this->db->query("
+<?php
+                        $iduser = $this->session->userdata('id');
+                        // var_dump($iduser);die();
+$id = $this->db->query("
                              SELECT * from distribusi
                            join alokasi on distribusi.id_alokasi = alokasi.id_alokasi
                            join posko on alokasi.id_posko=posko.id_posko
-                           where status = 'bantuan dikirim' and alokasi.id='$iduser'
+                           where status = 'bantuan dikirim' and posko.id='$iduser'
                             order by alokasi.id_alokasi ASC limit 0,3
                         ")->result_array(); ?>
                         <?php $i = 1; ?>
