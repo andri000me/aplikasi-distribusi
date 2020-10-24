@@ -37,7 +37,6 @@ class Page_admin extends CI_Controller{
     	$dataalo['dataalokasi'] = $this->db->query("
                             SELECT * from alokasi
                             join posko on alokasi.id_posko=posko.id_posko
-                            join bantuan on alokasi.id_bantuan=bantuan.id_bantuan
                             where alokasi.id_alokasi='$idalo'
                             ")->row_array();
     	  $this->load->view('templates/header');

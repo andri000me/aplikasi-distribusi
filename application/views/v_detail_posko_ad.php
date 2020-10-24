@@ -87,7 +87,7 @@
                                      <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="col-md-6">Jenis Bantuan</label>
-                                            <input readonly type="text" name="jenis_bantuan" class="form-control form-control-line" value="<?php echo $dataalokasi['jenis_bantuan']; ?>">
+                                            <input readonly type="text" name="jenis_bantuan" class="form-control form-control-line" value="<?php echo $dataalokasi['nama_bantuan']; ?>">
                                         </div>
                                         
                                     </div>

@@ -48,6 +48,22 @@
 </style>
 </head>
 <body>
+
+    <?php
+
+    $jlh = $this->db->query("SELECT COUNT(tgl_distribusi) as jlh
+FROM distribusi
+GROUP by month(tgl_distribusi)");
+
+$tgl = $this->db->query("SELECT  month(tgl_distribusi) as tgl
+FROM distribusi
+GROUP by month(tgl_distribusi)"); 
+
+// var_dump($jlh->num_rows());die();
+
+    if ($jlh->num_rows() == 1 OR $tgl->num_rows() == 1) : ?>
+        
+
 <div class="row">
     <div class="col-12">
 <figure class="highcharts-figure">
@@ -94,7 +110,6 @@
                              SELECT * from distribusi
                            join alokasi on distribusi.id_alokasi = alokasi.id_alokasi
                            join posko on alokasi.id_posko=posko.id_posko
-
                             order by alokasi.id_alokasi ASC
                         ")->result(); ?>
                     
@@ -125,16 +140,23 @@
 </div>
 
 
+  
+
+
+
+
+
 <?php
 
-$jlh = $this->db->query("SELECT COUNT(tgl_distribusi) as jlh
+
+
+    $jlh = $this->db->query("SELECT COUNT(tgl_distribusi) as jlh
 FROM distribusi
 GROUP by month(tgl_distribusi)")->result();
 
 $tgl = $this->db->query("SELECT  month(tgl_distribusi) as tgl
 FROM distribusi
 GROUP by month(tgl_distribusi)")->result(); 
-
 
 
 
@@ -219,8 +241,9 @@ GROUP by month(tgl_distribusi)")->result();
     }]
 });
 </script>
+ <?php else: ?>
 
-
+   <?php  endif ?>
 </body>
 </html>
 
