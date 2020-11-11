@@ -11,6 +11,7 @@
                 <li class="nav-item"><a href="<?php echo base_url()?>page_admin/admin_kd" class="nav-link">Kelola Distribusi</a></li>
                 <li class="nav-item"><a href="<?php echo base_url()?>page_admin/admin_md" class="nav-link">Monitoring Distribusi</a></li>
                 <li class="nav-item"><a href="<?php echo base_url()?>page_admin/grafikad" class="nav-link">Data Distribusi</a></li>
+                <li class="nav-item"><a href="<?php echo base_url()?>page_admin/posko_sampai" class="nav-link">Histori Data Posko</a></li>
             </ul>
           </div>
         </div>

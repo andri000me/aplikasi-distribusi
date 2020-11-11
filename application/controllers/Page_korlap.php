@@ -9,20 +9,16 @@ class Page_korlap extends CI_Controller{
     }
  
     function index(){
-    	
-    	$this->load->view('templates/header');
+        
+        $this->load->view('templates/header');
         $this->load->view('templates/sidebar_korlap');
         $this->load->view('page_korlap');
         $this->load->view('templates/footer');
         
     }
 
-        function korlap_kd(){
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar_korlap');
-        $this->load->view('korlap/v_korlap_kd');
-        $this->load->view('templates/footer');
-    }
+
+
 
      function korlap_md(){
             $this->load->view('templates/header');
@@ -31,6 +27,7 @@ class Page_korlap extends CI_Controller{
     }
 
      function detailkd($id, $posko){
+
     	 $this->db->get_where('distribusi', ['id_dis' => $id])->row_array();
 
     	 // $this->load->view('v_detail_posko_kd',$datakd);
@@ -42,9 +39,21 @@ class Page_korlap extends CI_Controller{
             $this->db->where('id_dis', $id);
             $this->db->update('distribusi', $data1);
 
-             $data2 = [
-                "status" => "bantuan sampai"
+            if ($this->input->post('lengkap')) {
+                 $data2 = [
+                "status" => "bantuan sampai",
+                "lengkap" => "ya"
             ];
+            }else{
+
+                 $data2 = [
+                "status" => "bantuan sampai",
+                "lengkap" => "tidak",
+                "keterangan" => $this->input->post('keterangan')
+            ];
+
+            }
+            
 
             $this->db->where('id_posko', $posko);
             $this->db->update('posko', $data2);

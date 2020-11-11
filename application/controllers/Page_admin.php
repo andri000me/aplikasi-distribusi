@@ -7,7 +7,13 @@ class Page_admin extends CI_Controller{
         if ($this->session->userdata('level') !== 'admin')
             { redirect('auth/logout','refresh');}
     }
- 
+     function posko_sampai(){
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar_admin');
+        $this->load->view('admin/posko_sampai');
+        $this->load->view('templates/footer');
+    }
+
     function index(){
     	 $this->load->view('templates/header');
         $this->load->view('templates/sidebar_admin');
@@ -37,6 +43,7 @@ class Page_admin extends CI_Controller{
     	$dataalo['dataalokasi'] = $this->db->query("
                             SELECT * from alokasi
                             join posko on alokasi.id_posko=posko.id_posko
+                            JOIN bantuan on posko.id_bantuan = bantuan.id_bantuan
                             where alokasi.id_alokasi='$idalo'
                             ")->row_array();
     	  $this->load->view('templates/header');
