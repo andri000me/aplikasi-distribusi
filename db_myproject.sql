@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Nov 2020 pada 21.22
+-- Waktu pembuatan: 13 Nov 2020 pada 07.38
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.2
 
@@ -53,15 +53,15 @@ INSERT INTO `alokasi` (`id_alokasi`, `id`, `nm_alokasi`, `id_posko`, `tgl_alokas
 CREATE TABLE `bantuan` (
   `id_bantuan` int(11) NOT NULL,
   `nama_bantuan` varchar(250) NOT NULL,
-  `jumlah_bantuan` int(11) NOT NULL
+  `keterangan` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `bantuan`
 --
 
-INSERT INTO `bantuan` (`id_bantuan`, `nama_bantuan`, `jumlah_bantuan`) VALUES
-(1, 'MIE REBUS SEKERDUS', 24);
+INSERT INTO `bantuan` (`id_bantuan`, `nama_bantuan`, `keterangan`) VALUES
+(1, 'MIE REBUS SEKERDUS', '24');
 
 -- --------------------------------------------------------
 
@@ -223,7 +223,7 @@ ALTER TABLE `alokasi`
 -- AUTO_INCREMENT untuk tabel `bantuan`
 --
 ALTER TABLE `bantuan`
-  MODIFY `id_bantuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_bantuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `distribusi`

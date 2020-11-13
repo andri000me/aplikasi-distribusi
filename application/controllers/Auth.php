@@ -33,6 +33,10 @@ class Auth extends CI_Controller{
                 {
                     redirect('page_korlap');
                 }
+            else if ($this->session->userdata('level') == 'pimpinan')
+                {
+                    redirect('page_pimpinan');
+                }
             else 
                 {
                     $text = '<div class="alert alert-danger" role="alert">Kombinasi Username dan Password Salah!</div>';
