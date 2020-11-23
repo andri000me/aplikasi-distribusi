@@ -16,7 +16,12 @@ class Page_korlap extends CI_Controller{
         $this->load->view('templates/footer');
         
     }
-
+        function korlap_kd(){
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar_korlap');
+        $this->load->view('korlap/v_korlap_kd');
+        $this->load->view('templates/footer');
+    }
 
 
 
